@@ -1,5 +1,7 @@
 //O(M+N)
 
+vector< vector<int> > adj;
+
 q.push(1); //q.push(start)
 while(!q.empty()){
 	keep = q.front();
@@ -7,11 +9,11 @@ while(!q.empty()){
 	if(keep == n){// keep == end
 		flag = true;
 	}
-	for(int i=0;i<g[keep].size();i++){
-		if(vis[g[keep][i]] == 0){
-			vis[g[keep][i]] = keep;
+	for(int i=0;i<adj[keep].size();i++){
+		if(vis[adj[keep][i]] == 0){
+			vis[adj[keep][i]] = keep;
               //紀錄路徑的上個點，用來找輸出路徑
-			q.push(g[keep][i]);
+			q.push(adj[keep][i]);
 		}
 	}
 }

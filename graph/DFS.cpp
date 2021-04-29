@@ -1,13 +1,12 @@
 // O(M+N) untested
 
-vector< vector<int> > graph;
+vector< vector<int> > adj;
 bool vis[MaxSize];
 
-//remember to initial graph vis
+//remember to initial adj vis
 void dfs(int x){
-    if(vis[x]) return;
     vis[x] = true;
-    for(int e:graph[x]){
-        dfs(e);
+    for(int e:adj[x]){
+        if(!vis[e]) dfs(e);
     }
 }
