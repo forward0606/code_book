@@ -1,4 +1,5 @@
 #include <tuple>
+
 tuple<int, int, int>   edge[10005];
 long long dis[1003];
 

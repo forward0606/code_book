@@ -1,25 +1,36 @@
-/* disjoint set */
+//O(alpha(N))
 
-int djset[105];
+int djset[100005];
+int treesize[100005];
 
 void build(int n){
     for(int i=0;i<=n;i++){
-        djset[i]=i;
+        djset[i] = i;
+        treesize[i] = 1;
     }
 }
-int find(int x){
-    if(djset[x]==x){
+
+int findBoss(int x){
+    if(djset[x]== x){
         return x;
     }
-    return djset[x]=find(djset[x]);
+    return djset[x]=findBoss(djset[x]);
 }
 
 void combine(int a,int b){
-    if(find(a)!=find(b)){
-        djset[find(a)]=find(b);
+    a = findBoss(a);
+    b = findBoss(b);
+    if(a == b) return;
+    int temp;
+    if(treesize[a] < treesize[b]){
+        temp = a;
+        a = b;
+        b = temp;
     }
+    djset[b] = a;
+    treesize[a] += treesize[b];
 }
 
 bool same(int a,int b){
-	return find(a)==find(b);
+	return findBoss(a)==findBoss(b);
 }
