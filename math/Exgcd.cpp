@@ -2,10 +2,10 @@
 //find ax + by = gcd(a, b); use in find inverse in modular
 
 //two way to find s*t %m = 1
-//      1.if m is a prime and gcd(s, m) == 1 --> Fermat’s Little Theorem
+//      1.if m is a prime and gcd(s, m) == 1 --> Fermatâ€™s Little Theorem
 //              If p is prime and a is an integer not divisible by p, then a^(p-1)%p = 1
 //              find a^(p-2) with fast exponotial
-//      2.if gcd(s, m) == 0 -->Bezout’s Theorem
+//      2.if gcd(s, m) == 1 -->Bezoutâ€™s Theorem
 //              If a and b are positive integers,
 //              then there exist integers s and t such that gcd(a,b) = sa + tb.
 //              make a = s, b = m, then t = x;
