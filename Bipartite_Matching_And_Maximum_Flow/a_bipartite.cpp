@@ -31,7 +31,7 @@ int Bipartite_match() {
 void init() {
     for(int i = 0;i < k;i++) {
         int a, b; scanf("%d%d", &a, &b);
-        b = b + n;
+        b = b + n; // this is an important part about debugging
         adj[a].push_back(b); // a in left set, b ,¡÷in right set
     }
 }
