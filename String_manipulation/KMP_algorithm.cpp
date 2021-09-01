@@ -1,37 +1,34 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 string pattern, text;
 
 int first_place_matching = -1;
-int prefix_array[200006];
+int next[200006];
 int main ()
 {
     getline(cin, pattern);
     getline(cin, text);
     int l = pattern.length(), n = text.length();
     int j = 0;
-    prefix_array[0] = 0;
+    next[0] = 0;
     // building prefix_substring_array
     for(int i = 1; i < l; i++){
         if(pattern[i] == pattern[j]){
-            prefix_array[i] = (j+1);
+            next[i] = (j+1);
             j += 1;
             continue;
         }
         // they didn't match in this round.
         while(pattern[j] != pattern[i] && j != 0)
-            j = prefix_array[j-1];
+            j = next[j-1];
         if(pattern[i] == pattern[j]){
-            prefix_array[i] = (j+1);
+            next[i] = (j+1);
             j += 1;
         }
         else{
-            prefix_array[i] = 0;
+            next[i] = 0;
         }
     }
     /*for(int i = 0; i < l; i++)
-        cout<<prefix_array[i]<<" ";
+        cout<<next[i]<<" ";
     cout<<endl;*/
 
     // j is the pointer for pattern. i is the pointer of the text.
@@ -43,7 +40,7 @@ int main ()
             continue;
         }
         while(pattern[j] != text[i] && j != 0)
-            j = prefix_array[j];
+            j = next[j];
 
         if(pattern[j] == text[i]) j++;
     }
