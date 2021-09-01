@@ -8,11 +8,8 @@ int vis[5050]={0};
 struct Edge {
     int to;
     ll cap;
-    /* ---Update Part-- */
-    int rev; /* ·s¼W¤@­Óint¡A¬ö¿ı§Úªº¤Ï¦VªºÃäªºindex */
-             /* ·N«ä´N¬O¡A§Úªº¤Ï¦V¬y·|¦badj[to][rev]ªº¦a¤è */
-    /* ---------------- */
-    //Edge(){} /*°O±o§ï¤@¤U constructor */
+    int rev; /* æ–°å¢ä¸€å€‹intï¼Œç´€éŒ„æˆ‘çš„åå‘çš„é‚Šçš„index */
+    //Edge(){} /*è¨˜å¾—æ”¹ä¸€ä¸‹ constructor */
     Edge(int _to, ll _cap, int _rev): to(_to), cap(_cap), rev(_rev) {}
 };
 
@@ -37,11 +34,7 @@ ll DFS(int now, ll flow) {
             ll ret = DFS(e.to, min(flow, e.cap));
             if(ret > 0) {
                 e.cap -= ret;
-
-                /* ---Update Part---- */
                 adj[e.to][e.rev].cap += ret;
-                /* ¦A¦©±¼¦Û¤v¥»¨­®e¶qªº¦P®É¡A¥[¤W»P¦Û¨­¤Ï¦Vªº¬y¶q */
-                /* ------------------ */
                 return ret;
             }
         }
@@ -51,15 +44,9 @@ ll DFS(int now, ll flow) {
 ll max_flow() {
     ll ret = 0;
     ll tmp = 0;
-
-    /* ·íÁÙ¦³³Ñ¾l¬y¶q */
     while((tmp = DFS(s, INF)) > 0)  {
-        /* DFS ±q s ÂI¶}©l¡A¦Ó·í«e¬y¶q³]¦¨µL­­¡A
-         * ¬O¦]¬°²{¦bÁÙ¨S¦³¸g¹L¥ô¦ó¤@±øÃä¡A
-         * ¨«¤F¤@±øÃä¤§«á·|¨ú min¡A¤]´N¬O¨º±øÃäÅÜ¦¨²~ÀV */
-
         ret += tmp;
-        memset(vis, 0, sizeof(vis)); /* ªì©l¤Æ */
+        memset(vis, 0, sizeof(vis)); /* åˆå§‹åŒ– */
     }
     return ret;
 }
@@ -70,8 +57,8 @@ int main ()
         cin>>a>>b>>c;
 
         add_edge(a,b,c);
-        //add_edge(b,a,-c);
+        add_edge(b,a,-c);
     }
     s=1, t=n;
-    cout<<m-max_flow()<<endl;
+    cout<<max_flow()<<endl;
 }
