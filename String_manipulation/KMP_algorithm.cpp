@@ -1,52 +1,34 @@
-string pattern, text;
+int next[50005]={0};
 
-int first_place_matching = -1;
-int next[200006];
-int main ()
-{
-    getline(cin, pattern);
-    getline(cin, text);
-    int l = pattern.length(), n = text.length();
-    int j = 0;
-    next[0] = 0;
-    // building prefix_substring_array
-    for(int i = 1; i < l; i++){
-        if(pattern[i] == pattern[j]){
-            next[i] = (j+1);
-            j += 1;
-            continue;
-        }
-        // they didn't match in this round.
-        while(pattern[j] != pattern[i] && j != 0)
+void getNext(string s, int next[]) {
+    int i,j;
+    j=0;
+    next[0]=0;
+    for(i=1;i<s.size();i++){
+        while(j>0 && s[i] != s[j])
             j = next[j-1];
-        if(pattern[i] == pattern[j]){
-            next[i] = (j+1);
-            j += 1;
-        }
-        else{
-            next[i] = 0;
-        }
-    }
-    /*for(int i = 0; i < l; i++)
-        cout<<next[i]<<" ";
-    cout<<endl;*/
-
-    // j is the pointer for pattern. i is the pointer of the text.
-    int i;
-    for(i=0, j=0; i < n; i++){
-        if(pattern[j] == text[i]){
+        if(s[i]==s[j])
             j++;
-            if(j == l) break;
-            continue;
-        }
-        while(pattern[j] != text[i] && j != 0)
-            j = next[j];
-
-        if(pattern[j] == text[i]) j++;
+        next[i]=j;
     }
-    //cout<<"i "<<i <<" j "<<j<<endl;
+}
+// h means the text n means the pattern
+int get_pos(string h, string n){
+    int j=0;
+    for(int i = 0; i < h.size(); i++){
+        if(h[i]==n[j]){
+            j++;
 
-    // we +1 beacause the array counts from 0
-    if(j == l) cout<<i-l+1<<" is the first_place_matching"<<endl;
+            if(j == n.size())
+                return i-n.size()+1;
+        }else{
+            while(j > 0 && h[i] != n[j])
+                 j = next[j-1];
+            if(h[i]==n[j])
+                j++;
+        }
 
+    }
+
+    return -1;
 }
