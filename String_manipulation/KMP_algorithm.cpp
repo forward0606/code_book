@@ -1,12 +1,12 @@
 int nexts[50005]={0};
 
-void getNext(string s, int next[]) {
+void getNext(string s) {
     int i,j;
     j=0;
     nexts[0]=0;
     for(i=1;i<s.size();i++){
         while(j>0 && s[i] != s[j])
-            j = next[j-1];
+            j = nexts[j-1];
         if(s[i]==s[j])
             j++;
         nexts[i]=j;
