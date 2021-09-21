@@ -4,7 +4,9 @@ int main()
 {
     string s = "abcd";
     // to upper - 32 ASCII to lower + 32 ASCII
-    s.substr(2, 2) // start position (including), from the start position count number.
+    s.substr(0, 0) // ""
+    s.substr(0, 1) // a
+    s.substr(0, 2) // ab
     s.erase(2,2) // start position (including), from the start position count number.
     s.pop_back(); // delete the last element
     s.size();
