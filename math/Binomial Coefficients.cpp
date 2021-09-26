@@ -1,4 +1,4 @@
-// build O(N), others O(1)
+// build O(N), inverse O(log(MOD))
 
 long long factorial[1000006];
 const long long MOD = (1e9)+7;// should be a prime
