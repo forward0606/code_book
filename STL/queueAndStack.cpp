@@ -1,5 +1,7 @@
 #include<queue> // header file of queue and priority_queue
 #include<stack> // herder file of stack
+
+
 // 宣告
 queue<int> q;
 
@@ -18,19 +20,20 @@ priority_queue<Point> pq;
 stack<int> st;
 
 // usage
-    // add thing in it
-        q.push(x);
-        pq.push(x);
-        st.push(x);
-    // access thing out of it
-        x = q.front();
-        x = pq.top();
-        x = st.top();
-    // take the thing out of it
-        q.pop();
-        pq.pop();
-        st.pop();
-    // check empty
-        q.empty();
-    // check size
-        q.size();
+
+// add thing in it
+    q.push(x);
+    pq.push(x);
+    st.push(x);
+// access thing
+    x = q.front();
+    x = pq.top();
+    x = st.top();
+// take the thing out of it
+    q.pop();
+    pq.pop();
+    st.pop();
+// check empty
+    q.empty();
+// check size
+    q.size();
