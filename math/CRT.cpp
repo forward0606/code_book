@@ -3,7 +3,6 @@ lld inv(lld a, lld m); // a mod m
 lld n;
 lld T[5], d[5];
 lld crt();
-
 int main()
 {
     n = read();
@@ -21,7 +20,6 @@ lld inv(lld a, lld m) // a mod m
     lld x0 = 0, x1 = 1;
     if (m == 1)
         return 0;
-
     // Apply extended Euclid Algorithm
     while (a > 1) {
         // q is quotient
@@ -32,10 +30,8 @@ lld inv(lld a, lld m) // a mod m
         x0 = x1 - q * x0;
         x1 = t;
     }
-
     if (x1 < 0)
         x1 += m0;
-
     return x1;
 }
 lld crt()
