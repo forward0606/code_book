@@ -5,12 +5,10 @@ int main()
 {
     lld n;
     n = read();
-
     lld x=read();
-    print(x);
+    print(x); // you have to cout '\n' yourself
     cout<<'\n';
     print(x);
-
 }
 __int128 read() {
     __int128 x = 0, f = 1;
