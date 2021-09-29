@@ -1,21 +1,11 @@
-## 程式競賽背包問題快速筆記
-
-1.可以求指定subset sum是否存在 // weight 跟 value當同個物品
-
-2.可以求 小於等於指定值的組出 值 // weight 跟 value
-
-3.可以使用3個迴圈來解兩個維度的01背包
-
-4. 完全背包: 每件物品都可以放無數次 (不牽涉排列，組合 
-
-## 零錢/完全背包問題的排列組合
-
-dp[j] += dp[j-coins[i]];  // 這條code很重要 
-
-1.先物品，在總數是 組合
-
-2.先總數，在物品是 排列 
-
-## 多重背包
-
-1.把背包中一樣的物品丟進去背包，就可以好好算ㄌ
+Dynamic_Programming_Knapsack_Tips
+1.Check the specified subset sum whether exist // the num means the weight and value
+2.Get the closest number to the specified num // the num means the weight and value
+3.We can use three loops to solve two dimension knapsack problem. // two kinds of objects
+4.Complete knapsack: Every objects can use infinitly. // exclude permutations and combinations
+Complete Knapsack with permutations and combinations
+Key code: dp[j] += dp[j-coins[i]];  // get the possibility
+1.for items , for amount is about combination
+2.for amount , for items is about permutation
+Multi Knapsack
+1.Put every same item into the same backpack, then you can count it easily
