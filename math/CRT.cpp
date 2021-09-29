@@ -1,6 +1,4 @@
-#include<bits/stdc++.h>
-using namespace std;
-typedef long long int lld;
+typedef __int128 lld;
 lld inv(lld a, lld m); // a mod m
 lld n;
 lld T[5], d[5];
@@ -8,13 +6,13 @@ lld crt();
 
 int main()
 {
-    cin>>n;
+    n = read();
     for(int i = 0; i < n; i++){
-        cin>>T[i]>>d[i];
+         T[i]=read(), d[i]=read();
 
     }
-
-    cout<<crt()<<endl;
+    print(crt());
+    cout<<'\n';
 
 }
 lld inv(lld a, lld m) // a mod m
