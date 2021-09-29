@@ -2,7 +2,7 @@ typedef long long int lld;
 struct bag
 {
     int w, v;// weight and value.
-}o[1005];
+}o[1005]; // object
 lld dp[1005][100005] = {0};
 set<int> use;
 set<int>  ::  iterator it1, it2;
@@ -11,12 +11,11 @@ for(int i = 0; i < n; i++)
     cin>>o[i].v>>o[i].w; 
 // initialize
 for(int i = 1; i <= n; i++)
-    for(int j = 0; j <= m; j++){
+    for(int j = 0; j <= m; j++)
         if(o[i-1].w <= j) dp[i][j] = max(dp[i-1][j], dp[i-1][j-o[i-1].w] + o[i-1].v);
-        else {
+        else 
             dp[i][j] = dp[i-1][j];
-        }
-    }
+        
 int rec_pos = m;
 lld tmp = dp[n][rec_pos];
 // the i means the line from down to top and means the object which is used if not continue.
