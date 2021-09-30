@@ -1,15 +1,8 @@
-#include<algorithm>
-#include<iostream>
-#include<cassert>
-#include<cctype>
-#include<cmath>
-#include<cstdio>
-#include<cstdlib>
-#include<cstring>
-#include<map>
-#include<queue>
-#include<set>
-#include<string>
-#include<vector>
-#include<utility>
-#include<stack>
+<algorithm> <iostream>
+<cassert> <cctype>
+<cmath> <cstdio>
+<cstdlib> <cstring>
+<map> <queue>
+<set> <string>
+<vector> <utility>
+<stack>
