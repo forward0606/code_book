@@ -6,3 +6,4 @@
 <set> <string>
 <vector> <utility>
 <stack> <sstream> 
+<deque>
