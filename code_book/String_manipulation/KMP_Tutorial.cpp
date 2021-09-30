@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
 int nexts[50005]={0};
 vector<int>ans;
 void getNext(string s) {
