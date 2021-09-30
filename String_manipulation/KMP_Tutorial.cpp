@@ -1,8 +1,3 @@
-#include <bits/stdc++.h>
-// LeetCode Tutorial
-// https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0028.%E5%AE%9E%E7%8E%B0strStr.md
-// https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0459.%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2.md
-using namespace std;
 int nexts[50005]={0};
 vector<int>ans;
 void getNext(string s) {
@@ -50,7 +45,6 @@ int get_pos(string h, string n){
 
     return -1;
 }
-
 int main ()
 {
     string h="aaaaaaaaaaa"; // THE TEXT
